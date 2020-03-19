@@ -1,15 +1,23 @@
 import React from 'react';
 import './App.css';
-import Header from './Header';
-import Instructions from './Instructions';
-
+import 'antd/dist/antd.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import Accueil from './components/Accueil';
+import Formulaire from './components/Formulaire';
 
 const App = () => {
   return (
-    <div className="App">
-      <Header />
-      <Instructions/>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/Accueil" component={ Accueil } />
+        <Route exact path="/Formulaire" component={ Formulaire } />
+        <Route path="*" component={ Accueil } />
+      </Switch>
+    </Router>
   );
 }
 
